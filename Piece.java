@@ -43,7 +43,16 @@ public final class Piece {
      */
     private Piece(Point[] points)
     {
-        // TODO: implement constructor
+        // TODO: Implement Constructor
+        Point[] body = new Point[points.length];
+        for (int i = 0; i < points.length; i++)
+        {
+            body[i] = points[i];
+        }
+        //this.width = (int) maxX;
+        //this.height = (int) maxY;
+        int[] skirt = new int[this.height];
+        this.next = null;
     }   
 
     /**
