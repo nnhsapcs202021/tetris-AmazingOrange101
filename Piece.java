@@ -185,7 +185,10 @@ public final class Piece {
         String str = "";
         
         // TODO: build a string that contains all of the attributes of this Piece
-        
+        str += "Body: " + this.body.toString();
+        str += "Width: " + this.width;
+        str += "Height: " + this.height;
+        str += "Skirt: " + this.skirt.toString();
         return str;
     }
     
