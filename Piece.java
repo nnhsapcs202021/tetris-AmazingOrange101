@@ -255,6 +255,9 @@ public final class Piece {
             // TODO: step 2: reflect across y axis
             for (Point r : rotatedPoints)
             {
+                int tempX = (int) r.getX();
+                r.x = tempX * -1;
+          
             }
             // TODO: step 3: translate right
             int minX = Integer.MAX_VALUE; int minY = Integer.MAX_VALUE;
