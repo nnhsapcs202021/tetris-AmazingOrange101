@@ -247,11 +247,34 @@ public final class Piece {
             }
 
             // TODO: step 1: reflect across the line y = x
-            
+            for (Point r : rotatedPoints)
+            {
+                r.x = (int) r.getY();
+                r.y = (int) r.getX();
+            }
             // TODO: step 2: reflect across y axis
-            
+            for (Point r : rotatedPoints)
+            {
+            }
             // TODO: step 3: translate right
-            
+            int minX = Integer.MAX_VALUE; int minY = Integer.MAX_VALUE;
+            for (Point r : rotatedPoints) 
+            {
+                if (r.getX() < minX) 
+                {
+                    minX = (int) r.getX();
+                }
+                if (r.getY() < minY) 
+                {
+                    minY = (int) r.getY();
+                }
+            }
+
+            for (Point r : rotatedPoints) {
+                int tempX = (int) r.getX();
+                int tempY = (int) r.getY();
+                r.x = tempX + Math.abs(minX);
+                r.y = tempY;
             // create the rotated piece, update next, prepare for nextIteration
             Piece rotatedPiece = new Piece(rotatedPoints);
             
@@ -272,8 +295,10 @@ public final class Piece {
             }
         }
 
-        return firstPiece;
+        
     }
+    return firstPiece;
+}
 
     /**
      * Given a string of x,y pairs ("0 0   0 1 0 2 1 0"), parses the points into
