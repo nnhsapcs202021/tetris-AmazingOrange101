@@ -47,14 +47,31 @@ public final class Piece {
         Point[] body = new Point[points.length];
         for (int i = 0; i < points.length; i++)
         {
-            body[i] = points[i];
+            body[i].x = points[i].x;
+            body[i].y = points[i].y;
         }
-        //this.width = (int) maxX;
-        //this.height = (int) maxY;
+        double maxX = -1;
+        double maxY = 1;
+        this.width = (int) maxX +1;
+        this.height = (int) maxY +1;
         int[] skirt = new int[this.height];
-        this.next = null;
-    }   
-
+        for (int i = 0; i < this.skirt.length; i++)
+        {
+            this.skirt[i] = Integer.MAX_VALUE;
+        }
+        for (int i = 0; i < this.width; i++)
+        {
+            for (Point b: body)
+            {
+                if (b.getX() == i && b.getY() < this.skirt[i])
+                {
+                    this.skirt[i] = (int) b.getY();   
+                }
+            }
+        }
+         this.next = null;
+     }
+  
     /**
      * Returns the width of the piece measured in blocks.
      * 
