@@ -24,7 +24,14 @@ public class BrainFactory
          * If you do the BigBrain extension, also add an instance of BigBrain to
          *      the list.
          */
-        
+        SimpleBrain simpleBrain = new SimpleBrain();
+        SmallBrain smallBrain = new SmallBrain();
+
+        ArrayList<Brain> Brain = new ArrayList<Brain>();
+
+        Brain.add(simpleBrain); Brain.add(smallBrain);
+
+        return Brain;
         
     }
 }
